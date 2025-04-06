@@ -6,6 +6,10 @@ console.log('Tel vrienden niet mee als personen.');
 console.log('Bijvoorbeeld: 290');
 
 // schrijf jouw code hier
+
+/*
+ * Hetzelfde concept als bij 01, maar nu veranderen we onze boolean met een wat complexere expression
+*/
 const antw = people.reduce((c, p) => c + (p.location.country != "Bulgaria" && p.location.country != "Ecuador"), 0);
 
 // Print hier het antwoord op de vraag 
