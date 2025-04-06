@@ -6,7 +6,11 @@ const people = require('./people.json');
 
 console.log('Print de voornamen en leeftijden van alle combinaties van personen en vrienden, waarbij hun lijftijds verschil minstens zo groot is als de derdemachtswortel van de afstand tussen hun geografische coordinaten in kilometers');
 
-//https://www.movable-type.co.uk/scripts/latlong.html
+/*
+ * Dit is een simpele distance functie die ik overgenomen heb
+ * Ik had geen zin zelf deze functie te herleiden lol
+ * Source: https://www.movable-type.co.uk/scripts/latlong.html
+*/
 function distance(lat1, lon1, lat2, lon2) {
     const φ1 = lat1 * Math.PI/180;
     const φ2 = lat2 * Math.PI/180;
@@ -22,6 +26,15 @@ function distance(lat1, lon1, lat2, lon2) {
 }
 
 // schrijf jouw code hier
+
+/*
+ * Eigenlijk is deze functie best simpel, vergeleken met anderen
+ * De interne ternary is alleen best complex
+ *
+ * Er zijn hier twee reduces, de eerste over de personen, en de tweede over de vrienden daarvan
+ * In de ternary bereken we het leeftijdsverschil en de geografische afstand, en vergelijken we die lekker
+ * daarna is het echt gewoon het standaard ternary patroon, niet veel aan
+*/
 const antw = people.reduce((c, p) => 
     [...c, ...p.friends.reduce((c, f) =>
         Math.abs(p.age - f.age) >= Math.cbrt(
