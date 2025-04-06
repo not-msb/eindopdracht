@@ -6,7 +6,8 @@ console.log('Tel vrienden niet mee als personen.');
 console.log('Bijvoorbeeld: 63');
 
 // schrijf jouw code hier
+const antw = people.reduce((c, p) => c + (p.hobbies.reduce((c, h) => c || h == "Football", false) && p.hobbies.reduce((c, h) => c && h != "Swimming", true)), 0);
 
 // Print hier het antwoord op de vraag 
 console.log('\n<Antwoord>');
-console.log('bereken het antwoord!');
+console.log(antw);

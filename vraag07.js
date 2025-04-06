@@ -6,6 +6,11 @@ console.log('Bijvoorbeeld: 240');
 
 // schrijf jouw code hier
 
+// Alternatieve interpretatie
+//const antw = people.reduce((c, p) => c + p.friends.reduce((c, f) => c || f.married, false), 0);
+
+const antw = people.reduce((c, p) => p.married ? c + p.friends.reduce((c, f) => c + 1, 0) : c, 0);
+
 // Print hier het antwoord op de vraag 
 console.log('\n<Antwoord>');
-console.log('bereken het antwoord!');
+console.log(antw);
